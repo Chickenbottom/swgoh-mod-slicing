@@ -1,0 +1,24 @@
+<div class="mod-card p-3 col-12 no-gutters row">
+  <div class="col-12">
+    <span class="fa fa-times-circle close-icon float-right clickable px-3" (click)="removeCard()"></span>
+    <span class="fa fa-edit float-right clickable px-3" (click)="editCard()"></span>
+  </div>
+  <div class="d-flex flex-wrap pb-3 w-100">
+    <div class="col-6">
+      {{mod.primary.name}}
+    </div>
+    <div class="col-6">
+      + {{mod.primary.new}}%
+    </div>
+  </div>
+  <div *ngFor="let secondary of mod.secondaryStats" class="col-12">
+    <div class="d-flex flex-wrap">
+      <div class="col-6">
+          {{secondary.name}}
+      </div>
+      <div class="col-6">
+          {{formatValue(secondary)}}
+      </div>
+    </div>
+  </div>
+</div>

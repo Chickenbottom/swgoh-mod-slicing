@@ -1,0 +1,8 @@
+<div class="container-fluid p-5">
+    <app-stat-selection></app-stat-selection>
+    <div class="row">
+        <div *ngFor="let mod of mods" class="col-3 my-3">
+            <app-mod-card [mod]="mod"></app-mod-card>
+        </div>
+    </div>
+</div>

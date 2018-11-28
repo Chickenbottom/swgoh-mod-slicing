@@ -1,0 +1,56 @@
+<div class="container-fluid d-flex flex-wrap m-5">
+  <div class="w-25">
+    <div class="w-100">
+        PRIMARY STAT
+    </div>
+    <div class="d-flex flex-wrap">
+      <div class="w-100">
+        <div ngbDropdown class="d-inline-block">
+          <div class="flex-item">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{mod.primary.name}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item" *ngFor="let option of primaryDropdown" (click)="setStat('primary', option)">{{option}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100">
+        {{mod.primary.old}}
+      </div>
+      <div class="w-100">
+        {{formatValue(mod.primary)}}
+      </div>
+    </div>
+  </div>
+  <div class="w-75">
+    <div class="w-100">
+        SECONDARY STATS
+    </div>
+    <div class="w-100">
+      <div class="d-flex">
+        <div class="w-25" *ngFor="let currentStat of mod.secondaryStats">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{currentStat.name}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item" *ngFor="let option of secondaryDropdown"
+                (click)="setSecondaryStat(currentStat, option)">
+                {{option}}
+              </button>
+            </div>
+          </div>
+          <div class="w-25">
+            <input type="text" class="custom-input" [(ngModel)]="currentStat.old" (keyup)="calculate(currentStat)">
+          </div>
+          <div class="w-25">
+            {{formatValue(currentStat)}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-100">
+    <div class="float-right">
+      <button class="btn" (click)="buttonAction()" [disabled]="!isValidMod()">{{getButtonName()}}</button>
+    </div>
+  </div>
+</div>

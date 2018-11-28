@@ -1,0 +1,12 @@
+.mod-card {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #aaa;
+}
+.close-icon {
+    color: red;
+    border-left: 2px solid black;
+}
+.clickable {
+    cursor: pointer;
+}
